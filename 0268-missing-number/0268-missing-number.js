@@ -3,8 +3,8 @@
  * @return {number}
  */
 var missingNumber = function(nums) {
-    const n = nums.length; 
 
+// first solution //====================
     
 //     let actualSum = 0;
 //     for (let i = 0; i < nums.length; i++){
@@ -12,15 +12,32 @@ var missingNumber = function(nums) {
 //     }
     
 //     let expectedSum = 0; 
-//     for (let i = 0; i < length; i++){
+//     for (let i = 0; i <= nums.length; i++){
 //         expectedSum += i
 //     }
     
-    let expectedSum = (n * (n + 1)) / 2;
+//     let number = expectedSum - actualSum
+//     return number
     
-    const actualSum = nums.reduce((acc, current) => acc + current, 0)
+// second solution //==================
+//     const n = nums.length;
+//     let expectedSum = (n * (n + 1)) / 2;
+    
+//     const actualSum = nums.reduce((acc, current) => acc + current, 0)
 
-    let number = expectedSum - actualSum
+//     let number = expectedSum - actualSum
     
-    return number
+//     return number
+
+// third solution (if there is no missing numbers ) //=====================    
+    let temp = new Set(nums);
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!temp.has(i)) {
+            return i
+        }
+    }
+
+    return nums.length;
+
 };
