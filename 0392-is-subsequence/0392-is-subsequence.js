@@ -5,7 +5,7 @@
  */
 var isSubsequence = function(s, t) {
     
-    // if (s.length < t.length) return false;
+    if (s.length > t.length) return false;
     
     let i = 0;
     let j = 0;
