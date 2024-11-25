@@ -5,11 +5,19 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        result = 0
+        dictS = {}
+        dictT = {}
         
-        for char in s + t:
-            result ^= ord(char)
-        return chr(result)
+        for char in s:
+            dictS[char] = dictS.get(char, 0) + 1 
+            
+        for char in t:
+            dictT[char] = dictT.get(char, 0) + 1
+            
+        for char in dictT:
+            if dictT[char] != dictS.get(char, 0):
+                return char
+            
 
         
         
